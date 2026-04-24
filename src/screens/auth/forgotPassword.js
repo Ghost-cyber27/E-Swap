@@ -1,9 +1,11 @@
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
-import { CustomButton } from "../components/component";
+import { CustomButton } from "../../components/component";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from '@react-navigation/native';
 
 export default function ForgotPassword(){
+    const navigation = useNavigation();
 
     const fpass = () => {
         alert("Forgot Password");
@@ -11,7 +13,7 @@ export default function ForgotPassword(){
     return(
         <View style={styles.container}>
             <View style={{ margin: 10, marginTop: hp('3%') }}>
-                <TouchableOpacity style={styles.backBtn}>
+                <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
                     <Ionicons name="arrow-back" size={24} color={'white'} />
                 </TouchableOpacity>
             </View>

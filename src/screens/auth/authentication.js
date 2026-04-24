@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { CustomButton } from '../components/component';
+import { CustomButton } from '../../components/component';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Authentication(){
     const [isLogin, setIsLogin] = useState(true);
+    const navigation = useNavigation();
 
     const toggleAuth = () => {
         setIsLogin(!isLogin);
@@ -13,7 +15,7 @@ export default function Authentication(){
 
     const loggin = () => {
         //for logging in
-        alert("Logging");
+        navigation.navigate("UserTabs");
     }
 
     const signingUp = () => {
@@ -51,6 +53,9 @@ export default function Authentication(){
                             />
                             <Ionicons name='eye' size={24} style={{ position: 'absolute', left: 500, top: 20 }} />
                         </View>
+                        <TouchableOpacity style={{ left: 350 }} onPress={() => navigation.navigate("ForgotPassword")}>
+                            <Text style={{color: 'blue', fontSize: 16}}>Forgot Password</Text>
+                        </TouchableOpacity>
                         <CustomButton title='Login' onPress={loggin} />
                     </View>
                 </View>
