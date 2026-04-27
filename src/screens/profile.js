@@ -1,11 +1,7 @@
 import { View, Text, Button, StyleSheet, Modal, TouchableOpacity } from 'react-native';
-import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Profile() {
-  const { name } = useLocalSearchParams();
-  const router = useRouter();
-
   return (
     <View style={styles.container}>
       <View style={styles.firstCon}>
