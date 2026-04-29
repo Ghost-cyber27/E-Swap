@@ -1,15 +1,11 @@
 import { View, Text, Button, StyleSheet, Modal, TouchableOpacity } from 'react-native';
-import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Profile() {
-  const { name } = useLocalSearchParams();
-  const router = useRouter();
-
   return (
     <View style={styles.container}>
       <View style={styles.firstCon}>
-        <Text style={{ color: 'white', fontSize: 30, fontWeight: 'bold', top: 20 }}>Hello {name}</Text>
+        <Text style={{ color: 'white', fontSize: 30, fontWeight: 'bold', top: 20 }}>Hello User</Text>
         <View style={{ width: 200, height: 200, borderRadius: 100, backgroundColor: '#ffffff', alignItems: 'center', justifyContent: 'center', marginTop: 50, borderWidth: 5, borderColor: '#2596be' }}>
             <Ionicons name="person" size={100} color="#2596be"/>
         </View>
@@ -22,6 +18,10 @@ export default function Profile() {
         <TouchableOpacity style={styles.optBtn}>
           <Ionicons name='cart' size={30} />
           <Text style={styles.optBtnText}>Orders</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.optBtn}>
+          <Ionicons name='heart' size={30} />
+          <Text style={styles.optBtnText}>Wishlist</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.optBtn}>
           <Ionicons name='document' size={30} />
